@@ -1,0 +1,95 @@
+---
+title: Next JS Guide
+description: Introduction to nextjs
+image: /next.svg
+readTime: 3
+publishedDate: 17 march 2025
+tags: [nextjs, react, guide]
+---
+
+## Introduction
+Next.js is a powerful React framework that enables server-side rendering, static site generation, and API routes out of the box. It provides great developer experience and performance benefits.
+
+## Installation
+To start a new Next.js project, you can use the following command:
+
+```sh
+npx create-next-app@latest my-next-app
+cd my-next-app
+npm run dev
+```
+
+This will create a new Next.js application and start the development server at<Link href={"http://localhost:3000"} legacyBehavior>http://localhost:3000</Link>.
+
+## Pages and Routing
+Next.js uses a file-based routing system. Any file inside the `pages/` directory automatically becomes a route.
+
+### Creating a New Page
+Create a new file `about.js` inside the `pages/` directory:
+
+```jsx
+// pages/about.jsx
+export default function About() {
+  return (
+    <div>
+      <h1>About Us</h1>
+      <p>This is the about page of our Next.js application.</p>
+    </div>
+  );
+}
+```
+
+Now, visiting<Link href={"http://localhost:3000/about"} legacyBehavior>http://localhost:3000/about</Link>will display this page.
+
+## API Routes
+Next.js allows creating API routes inside the `pages/api/` directory.
+
+### Example API Route
+Create a new file `hello.js` inside `pages/api/`:
+
+```javascript
+// pages/api/hello.js
+export default function handler(req, res) {
+  res.status(200).json({ message: "Hello, Next.js API!" });
+}
+```
+
+Accessing<Link href={"http://localhost:3000/api/hello"} legacyBehavior>http://localhost:3000/api/hello</Link>will return a JSON response.
+
+## Fetching Data
+Next.js supports both `getStaticProps` and `getServerSideProps` for data fetching.
+
+### Static Generation Example
+
+```javascript
+export async function getStaticProps() {
+  return {
+    props: {
+      message: "This page is pre-rendered at build time."
+    }
+  };
+}
+
+export default function Home({ message }) {
+  return <p>{message}</p>;
+}
+```
+
+### Server-side Rendering Example
+
+```javascript
+export async function getServerSideProps() {
+  return {
+    props: {
+      message: "This page is rendered on the server for each request."
+    }
+  };
+}
+
+export default function Home({ message }) {
+  return <p>{message}</p>;
+}
+```
+
+## Conclusion
+Next.js provides a great way to build performant and scalable applications. With built-in routing, API routes, and data-fetching capabilities, it's a great choice for modern web development.

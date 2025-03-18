@@ -1,26 +1,146 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
+  --text-xxs: 10px;
+}
+
+::selection {
+  color:#000;
+  background-color: #d8efff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-bricolage);
+  --font-plus: var(--font-plus-jakarta);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-source: var(--font-source);
+  --text-xxs: var(--text-xxs);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+html, body {
+  background: url('/bg.png') no-repeat center/cover var(--background); /* Correggi il percorso */
+  background-size:cover; /* Opzionale: copre l'intero spazio */
+  background-position: center; /* Opzionale: centra l'immagine */
+  background-repeat: no-repeat;
 }
 
 body {
-  background: var(--background);
+  /* Opzionale: evita ripetizioni */
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  min-height: 100vh; /* Assicura che il body occupi l'altezza della finestra */
+}
+
+@layer utilities {
+  section h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-plus font-extrabold mt-8;
+  }
+
+  section h1 {
+    @apply text-4xl
+  }
+
+  section p {
+    @apply tracking-tight font-sans;
+  }
+
+  section a {
+    @apply text-sky-500 underline-offset-2 px-1 py-0.5 rounded-md font-mono text-sm;
+  }
+}
+/* styles/globals.css */
+@layer components {
+  .prose-custom {
+    @apply prose w-full m-auto px-6 py-4 font-sans prose-headings:text-black text-black;
+  }
+
+  .social {
+    @apply ring-1 w-[45px] h-[45px] ring-inset flex justify-center items-center ring-neutral-300 hover:bg-neutral-200 bg-neutral-100 rounded-3xl text-3xl text-black;
+  }
+
+  .icon {
+    @apply text-2xl text-black m-2;
+  }
+
+  .prose-custom h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-plus font-bold mt-8;
+  }
+
+  .prose-custom p {
+    @apply tracking-tight;
+  }
+
+  .prose-custom h1 {
+    @apply text-5xl text-black my-12;
+  }
+
+  .prose-custom h2 {
+    @apply text-4xl text-black;
+  }
+
+  .prose-custom h3 {
+    @apply text-[26px] font-bold text-black;
+  }
+
+  .prose-custom h4 {
+    @apply text-2xl prose-h4:text-black;
+  }
+
+  .prose-custom h5 {
+    @apply text-xl prose-h5:text-black;
+  }
+
+  .prose-custom h6 {
+    @apply text-lg prose-h6:text-black;
+  }
+
+  .prose-custom code {
+    @apply ring-1 ring-neutral-300 font-normal bg-neutral-100 py-1 px-2 mx-0.5 rounded-md font-mono text-sm;
+  }
+
+  /* Stili per blocchi di codice */
+  .prose-custom pre {
+    @apply p-4 rounded-lg overflow-x-auto font-mono;
+    font-family: var(--font-mono);
+  }
+
+  .prose-custom code::before,
+  .prose-custom code::after {
+    content: "" !important;
+  }
+
+  .prose-custom a {
+    @apply text-sky-500 underline-offset-2 p-0.5 rounded-md font-mono text-sm;
+  }
+
+  /* Per evitare che il `code` dentro `pre` prenda gli stili di inline code */
+  .prose-custom pre code {
+    @apply bg-transparent ring-0 p-0 text-white font-mono;
+    font-family: inherit;
+  }
 }

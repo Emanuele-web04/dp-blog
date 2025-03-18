@@ -1,103 +1,119 @@
+import Navbar from "@/components/Navbar";
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { RiTwitterXFill } from "react-icons/ri";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="w-full container max-w-4xl m-auto px-3 sm:px-0 flex flex-col justify-center py-6">
+      <section className="intro m-auto max-w-3xl px-6 space-y-6">
+        <div className="flex flex-col pt-8 space-y-2">
+          <Image
+            src={"/me.png"}
+            alt=""
+            width={50}
+            height={50}
+            className="rounded-full h-[50px] object-cover"
+          />
+          <h1 className="text-3xl !mt-0 font-bold">
+            <span className="text-2xl">Hey there! 👋</span> <br />
+            <span className="relative">
+              <span className="absolute bg-sky-200 w-full h-[10px] bottom-0"></span>
+              <span className="relative font-extrabold">I'm Emanuele</span>
+            </span>
+          </h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <hr className="border-t border-neutral-300" />
+
+        <p className="text-lg leading-snug">
+          Welcome to my blog. <br /> I’m <strong>Emanuele Di Pietro</strong>, an{" "}
+          <strong>iOS/Web developer</strong> with a background from the Apple
+          Developer Academy. I build apps and websites, experiment with new
+          technologies, and share my development journey here and on{" "}
+          <Link
+            href={"https://x.com/manuvelopment"}
+            className="text-sky-500 font-semibold text-lg"
+          >
+            𝕏
+          </Link>
+          .
+        </p>
+
+        <p className="text-lg leading-snug">
+          Technology has always been a passion of mine, but it's not the only
+          one. I also have a strong interest in <strong>fitness</strong>,
+          <strong> Formula 1</strong>, and the mindset that drives high
+          performance, both in coding and in life.
+        </p>
+
+        <hr className="border-t border-neutral-300" />
+
+        <p className="text-lg leading-snug">
+          I like to focus on <strong>real projects</strong> rather than endless
+          tutorials. Some of the things I’ve built include{" "}
+          <Link
+            className="text-sky-500 hover:underline font-mono"
+            href={
+              "https://apps.apple.com/it/app/tidyspace-links-photos-docs/id6504195620?l=en-GB"
+            }
+            target="_blank"
+          >
+            TidySpace
+          </Link>
+          , a tool for staying organized, and{" "}
+          <Link
+            href={
+              "https://apps.apple.com/ng/developer/emanuele-di-pietro/id1728279040"
+            }
+            className="font-mono text-sky-500"
+          >
+            3 more apps
+          </Link>
+          , and some still in building. When I work on
+          something, I care about{" "}
+          <strong>
+            clean code, usability, and making things that actually work
+          </strong>
+          .
+        </p>
+
+        <hr className="border-t border-neutral-300" />
+
+        <p className="text-lg leading-relaxed">
+          Besides iOS, I also enjoy working with <strong>React</strong>. I’ve
+          built things like <em>ClientFlow</em>, a client management tool, and a
+          dictionary app designed for ease of use. I’ve also hit a few
+          milestones along the way, like getting my first app subscription—small
+          wins that keep me motivated.
+        </p>
+
+        <p className="text-lg leading-relaxed">
+          Right now, I’m diving into <strong>Next.js</strong> to expand my web
+          development skills. I already have experience with{" "}
+          <strong>React, Swift, C, and more</strong>, but I always enjoy
+          learning new things and improving my workflow.
+        </p>
+
+        <hr className="border-t border-neutral-300" />
+
+        <p className="text-lg leading-relaxed">
+          This blog is a space where I write about different topics that
+          interest me:
+          <strong> life lessons, coding, productivity</strong>, and anything
+          else that sparks curiosity. It’s a mix of what I’m working on, things
+          I’m learning, and challenges I’ve faced along the way.
+        </p>
+
+        <hr className="border-t border-neutral-300" />
+
+        <p className="text-lg leading-relaxed font-semibold text-neutral-700">
+          Stick around, and let’s build cool things together.
+        </p>
+      </section>
     </div>
   );
-}
+};
+
+export default Home;
