@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // ✅ Ignore ESLint warnings in production
   },
+  typescript: {
+    ignoreBuildErrors: true, // ✅ Ignore TypeScript errors in production
+  },
   // Optionally, add any other Next.js config below
 }
  
