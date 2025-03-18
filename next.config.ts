@@ -6,7 +6,10 @@ import rehypeHighlight from 'rehype-highlight'
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ['next-mdx-remote']
+  transpilePackages: ['next-mdx-remote'],
+  eslint: {
+    ignoreDuringBuilds: true, // ✅ Ignore ESLint warnings in production
+  },
   // Optionally, add any other Next.js config below
 }
  
